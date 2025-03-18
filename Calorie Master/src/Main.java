@@ -44,7 +44,7 @@ public class Main {
             bmrRounded = (int) bmr;
             System.out.println("You have a BMR of " + bmrRounded);
         }
-        //Hellow world 
+        
 
 
 
