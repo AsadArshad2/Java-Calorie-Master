@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -8,8 +10,10 @@ public class Main {
         final int weight; //KG
         final int height; //CM
         final char gender; //M or F
-        double bmr;
-        int bmrRounded;
+        double bmr = 0;
+        int bmrRounded = 0;
+        int activityLevel; //
+        double tdee = 0;
 
         Scanner scanner = new Scanner(System.in);
         // Plan
@@ -42,18 +46,33 @@ public class Main {
         if (gender == 'F' || gender == 'f') {
             bmr = 447.593 + (9.247*weight) + (3.098*height) - (4.330*age);
             bmrRounded = (int) bmr;
-            System.out.println("You have a BMR of " + bmrRounded);
+            System.out.println("You have a Basal Metabolic Rate of " + bmrRounded);
         }
-        
+        System.out.println("What would you say your activity level is?");
+        System.out.println("0 = Couch Potato \n1 = Lightly Active \n2 = Moderately Active \n3 = Very Active \n4 = Extremely Active");
+        activityLevel = scanner.nextInt();
 
+        if (activityLevel == 0) {
+            tdee = (bmr * 1.2);
+        }
 
+        if (activityLevel == 1) {
+            tdee = (bmr * 1.375);
+        }
 
+        if (activityLevel == 2) {
+            tdee = (bmr * 1.55);
+        }
 
+        if (activityLevel == 3) {
+            tdee = (bmr * 1.725);
+        }
 
-
-
-
-        System.out.println("end");
+        if (activityLevel == 4) {
+            tdee = (bmr * 1.9);
+        }
+        System.out.println(tdee);
     }
+
 
 }
